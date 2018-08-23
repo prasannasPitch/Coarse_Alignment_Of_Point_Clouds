@@ -74,4 +74,4 @@ pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>* harris3D = new
 		}
 		pcl::io::savePCDFile("key_regions.pcd", *key_regions);
     
-    
+![side by side cad-cam](https://user-images.githubusercontent.com/37708330/44519041-263ef700-a6cc-11e8-9ce1-198578fa6b35.png)
