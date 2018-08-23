@@ -99,3 +99,5 @@ As you could see in fig.2 , the 3d sensor measurement is partial and might be sk
 Major challenge was to develop features which are insensitive to local features and without using heavy feature descriptors. Euclidean distance will be the best possible feature that could be exploited from a data which only has point location. 
 
 
+![points listted](https://user-images.githubusercontent.com/37708330/44544130-b5223280-a711-11e8-853e-978c98a75b56.PNG)
+
