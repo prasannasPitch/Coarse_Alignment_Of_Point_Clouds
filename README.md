@@ -112,3 +112,15 @@ Combinations of points in source point cloud i.e. by the number of key points in
 ![image](https://user-images.githubusercontent.com/37708330/44545342-14ce0d00-a715-11e8-961a-594399fa9531.png)
 
 
+
+
+![image](https://user-images.githubusercontent.com/37708330/44545516-9887f980-a715-11e8-8ed7-82bf579dbfc2.png)
+
+
+
+
+
+
+![features](https://user-images.githubusercontent.com/37708330/44545669-fd435400-a715-11e8-94a6-feb0c6470879.png)
+
+
