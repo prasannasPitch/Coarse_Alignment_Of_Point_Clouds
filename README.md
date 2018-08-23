@@ -98,6 +98,17 @@ As you could see in fig.2 , the 3d sensor measurement is partial and might be sk
 
 Major challenge was to develop features which are insensitive to local features and without using heavy feature descriptors. Euclidean distance will be the best possible feature that could be exploited from a data which only has point location. 
 
+Consider we found 14 Key points in source point cloud (CAD point cloud) and 5 points in target point cloud (Sensor point cloud).
+Source points are represented in Workpiece Coardinates and target points are represented in Sensor/TCP/World Coardinates. Now the source is to be transformed to the target by which transformation between workpiece coardinate and world coardinate could be obtained. 
 
-![points listted](https://user-images.githubusercontent.com/37708330/44544130-b5223280-a711-11e8-853e-978c98a75b56.PNG)
+
+
+![image](https://user-images.githubusercontent.com/37708330/44544763-683f5b80-a713-11e8-8f67-6138bcc3963e.png)
+
+
+Combinations of points in source point cloud i.e. by the number of key points in the target, combinations of points are selected from the source point cloud. Here 5 points are selected from 14 points. Each combination of points corresponds to one dataset of features – Euclidean distance between each points.
+
+
+
+
 
