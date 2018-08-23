@@ -108,7 +108,7 @@ Source points are represented in Workpiece Coardinates and target points are rep
 
 Combinations of points in source point cloud i.e. by the number of key points in the target, combinations of points are selected from the source point cloud. Here 5 points are selected from 14 points. Each combination of points corresponds to one dataset of features – Euclidean distance between each points.
 
-&npsp; 
+
 
 ![image](https://user-images.githubusercontent.com/37708330/44545342-14ce0d00-a715-11e8-961a-594399fa9531.png)
 
