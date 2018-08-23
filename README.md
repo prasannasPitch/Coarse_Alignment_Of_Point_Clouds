@@ -75,4 +75,4 @@ The Harris method (Harris and Stephens, 1988) is a corner and edge based method 
 		}
 		pcl::io::savePCDFile("key_regions.pcd", *key_regions);
     
-![side by side cad-cam](https://user-images.githubusercontent.com/37708330/44519041-263ef700-a6cc-11e8-9ce1-198578fa6b35.png)
+![cad-ptcld](https://user-images.githubusercontent.com/37708330/44541347-f31b5880-a709-11e8-9a9e-741a2173a950.png)
