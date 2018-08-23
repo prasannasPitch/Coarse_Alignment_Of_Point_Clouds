@@ -85,3 +85,17 @@ Fig. 1 - Step File of the Model and its corresponding point cloud with keypoints
 
 ![side by side cad-cam-n](https://user-images.githubusercontent.com/37708330/44542327-c583de80-a70c-11e8-9f54-f02a6400a2e0.png)
 Fig. 2 - 2d Image of work piece and 3d point cloud data after keypoint generation.
+
+Major problem with Harris 3D keypoint generation is that it really gives the key regions of the point cloud but not the exact keypoint. So clustering algorithm is applied to find the most important point from the regions (cluster). Results showed that K Means clustering algorithm performed better compared with all other clustering methods.
+
+
+#### Feature Generation
+
+As you could see in fig.2 , the 3d sensor measurement is partial and might be skewed with respect to the 3d model. Our algorithm should obtain features in such a way that, irrespective of the pose of the workpiece, features should remain constant. From the 3D vision sensor we get only the location of each point cloud in space. PCL supports feautre descriptors such as FPFH, PFH which could be used but that didnt work well in my case. There are two major reasons for this:
+
+- It is too computationally expensive to perform at real time.
+- Similar features leaded to irrelevant correspondences.
+
+Major challenge was to develop features which are insensitive to local features and without using heavy feature descriptors. Euclidean distance will be the best possible feature that could be exploited from a data which only has point location. 
+
+
