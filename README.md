@@ -80,3 +80,8 @@ Fig. 1 - Step File of the Model and its corresponding point cloud with keypoints
 
 
 
+
+
+
+![side by side cad-cam-n](https://user-images.githubusercontent.com/37708330/44542327-c583de80-a70c-11e8-9f54-f02a6400a2e0.png)
+Fig. 2 - 2d Image of work piece and 3d point cloud data after keypoint generation.
