@@ -76,3 +76,7 @@ The Harris method (Harris and Stephens, 1988) is a corner and edge based method 
 		pcl::io::savePCDFile("key_regions.pcd", *key_regions);
     
 ![cad-ptcld](https://user-images.githubusercontent.com/37708330/44541347-f31b5880-a709-11e8-9a9e-741a2173a950.png)
+Fig. 1 - Step File of the Model and its corresponding point cloud with keypoints highlighted.
+
+
+
