@@ -29,11 +29,12 @@ A point cloud is a collection of data points defined by a given coordinates syst
 
 The Harris method (Harris and Stephens, 1988) is a corner and edge based method and these types of methods are characterized by their high-intensity changes in the horizontal and vertical directions. For the 3D case, the adjustment made in PCL for the Harris3D detector replaces the image gradients by surface normals. With that, they calculate the covariance matrix around each point.
 
-pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>* harris3D = new
-			pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>(pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>::HARRIS);
-
-		//Code Snippet to Detect Harris 3D Keypoints
+    //Code Snippet to Detect Harris 3D Keypoints
     
+    
+    pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>* harris3D = new
+    pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>(pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>::HARRIS);
+			
     harris3D->setNonMaxSupression(false);
 		harris3D->setRadius(12);
 		harris3D->setInputCloud(orig_pcd);
