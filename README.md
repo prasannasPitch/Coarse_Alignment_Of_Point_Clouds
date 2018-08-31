@@ -144,4 +144,4 @@ The major bottle necks found in using a CNN till now are :
 
 Even though it had these major bottle necks, I managed to find an efficient approach. Using Decision Tree/Random Forest Regressor, we could split the training data into possible nodes. Then our evaluation data could be fitted with the possible node which we are looking for. By this method we could estimate which is the right combination of points present in our CAD model corresponds to our Camera point cloud. 
 
-
+![decision tree](https://user-images.githubusercontent.com/37708330/44932992-c7cae600-ad67-11e8-95bd-9d6bc89804e2.PNG)
