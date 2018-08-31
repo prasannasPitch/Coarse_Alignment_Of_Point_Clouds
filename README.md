@@ -126,3 +126,22 @@ Combinations of points in source point cloud i.e. by the number of key points in
 
 Now for each possible combination of points from source point cloud, there exist one corresponding feature matrix consisting of all possible distances. Considering the above points, there are 10 features (x0,x2,x3...x9) for a set of combination of points. These 10 features covers all the Eucledian distances between each other. This is considered as the features in my algorithm. The size of our training data will be [no. of combinations, size of features].
 
+### Model Training & Evaluation
+
+Now we have prepared our training data for our model. This model which we are about to develop would require a evaluation data to find the result which we are looking for. Just to be reminded, primary goal is to estimate the transformation between the two point clouds by finding the relevant correspondences. If you notice that, previously we had created our training data using CAD model. Now, we have only one set of points (keypoints) in the camera measurement. So this single set of camera measurement is used to evaluate our model which is already trained with our CAD training data.
+
+![cam-key](https://user-images.githubusercontent.com/37708330/44930781-b5e54500-ad5f-11e8-81b4-567645c9efaa.PNG)
+
+So the above is the camera measurement point and the corresponding single evaluation data. **Basically, the reason is that our features in a considered combination would be unique for each combination. Also the Eucledian distance features are independent irresepective of whatever the transformation may be.**
+
+Thus we have our training and evaluation data prepared. Now based on generated data we could think about an efficient model or preprocess the data if needed. After reading some research work, I came to know that lot of journals used the 2d depth map or RGBD image data to estimate the pose and orientation of the objects. Then I started with implementation of **Feed forward Neural Network/ Convolutional Neural Network**
+
+The major bottle necks found in using a CNN till now are :
+
+- Basically, the point cloud could be converted into 2d depth map without RGB data but the original geometric property of the point cloud could be lost. So we tried to maintain the point cloud data as it is to ensure that whole geometric property of the data could be handled.
+- The welding robot will register only one point cloud file i.e. the existing software is designed in such a way that the robot registers only one point cloud for each work piece. Each work piece could differ from the users input. So there are not much training data as any efficient deep learning method requires lot of training data.
+- Difference in size of the point clouds is huge. Since the 3D CAD model will have the complete perception of the workpiece it has more points. But in case of the camera output, partial or a portion of the workpiece could be generated because it largely depends upon the view field of the camera.
+
+Even though it had these major bottle necks, I managed to find an efficient approach. Using Decision Tree/Random Forest Regressor, we could split the training data into possible nodes. Then our evaluation data could be fitted with the possible node which we are looking for. By this method we could estimate which is the right combination of points present in our CAD model corresponds to our Camera point cloud. 
+
+
