@@ -124,3 +124,5 @@ Combinations of points in source point cloud i.e. by the number of key points in
 
 ![features](https://user-images.githubusercontent.com/37708330/44545669-fd435400-a715-11e8-94a6-feb0c6470879.png)
 
+Now for each possible combination of points from source point cloud, there exist one corresponding feature matrix consisting of all possible distances. Considering the above points, there are 10 features (x0,x2,x3...x9) for a set of combination of points. These 10 features covers all the Eucledian distances between each other. This is considered as the features in my algorithm. The size of our training data will be [no. of combinations, size of features].
+
