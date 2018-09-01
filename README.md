@@ -21,6 +21,7 @@ The Point Cloud Library (PCL) is a standalone, large scale, open project for 2D/
 - Dataset Reduction
 - Feature Generation
 - Model Training & Evaluation
+- Resolving Problems
 - Results Obtained
 
 #### Dataset Reduction - Keypoint Generation
@@ -145,3 +146,16 @@ The major bottle necks found in using a CNN till now are :
 Even though it had these major bottle necks, I managed to find an efficient approach. Using Decision Tree/Random Forest Regressor, we could split the training data into possible nodes. Then our evaluation data could be fitted with the possible node which we are looking for. By this method we could estimate which is the right combination of points present in our CAD model corresponds to our Camera point cloud. 
 
 ![decision tree](https://user-images.githubusercontent.com/37708330/44932992-c7cae600-ad67-11e8-95bd-9d6bc89804e2.PNG)
+
+So in our model, each node represents a class or each combination of points from CAD key points. Our model is evaluated with the only set of combination from the camera key points. The result will be the node/class which represent a combination of point. Now we have found the corresponding points in CAD model for a given camera point cloud. Finally we estimate the transformation between the two point sets.
+
+### Resolving Problems
+
+The discussed algorithm works well when the data is ideal i.e. if we dont have any deviation in the data, this algorithm holds good. Eg. in the cases of finding transformation between two CAD point cloud data. But major challenges were
+
+- Unfortunately our real time camera measurements contains noise which cannot be avoided. Our algorithm should be roboust enough to handle these noise. 
+- Keypoint detection algorithm gives only the key regions. Keypoint is found by taking K Means Clustering algorithm. So deviation of keypoints from the actual corners is likely to happen.
+- Symmetric workpieces like cuboid might have same eucledian distances between them.
+
+To handle these issues, I have designed an approach to take an optimal number of features which can contribute only to the right class/node. For example, the above considered point clouds will have 10 features which is noisy. 
+
