@@ -219,3 +219,9 @@ Here, our measurement has no symmetric data corrresponding to the CAD measuremen
 ![measure5](https://user-images.githubusercontent.com/37708330/44957692-ff0ad580-aed4-11e8-9273-3b6424c01259.PNG)
 ![measure52](https://user-images.githubusercontent.com/37708330/44957693-0205c600-aed5-11e8-8494-af593ec63d72.PNG)
 
+***Measurement 5:***
+
+![measure3](https://user-images.githubusercontent.com/37708330/44957684-e7cbe800-aed4-11e8-9632-ac2c441a4167.PNG)
+![measure32](https://user-images.githubusercontent.com/37708330/44957688-f4504080-aed4-11e8-989c-a572d9c222b3.PNG)
+
+
