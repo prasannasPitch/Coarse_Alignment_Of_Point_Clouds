@@ -163,16 +163,49 @@ However, we have to take another strategy to eliminate symmetric points in our d
 
 ### Observations & Results
 
-Measurement 1:
-Camera Point Cloud:
+***Measurement 1:***
 
 ![measure1](https://user-images.githubusercontent.com/37708330/44956665-e34d0280-aec7-11e8-9966-42a88b2fde7d.PNG)
 ![measure12](https://user-images.githubusercontent.com/37708330/44956667-e8aa4d00-aec7-11e8-92a9-d9c5fadd797c.PNG)
+
+If we analyze the table above, considering the results of the tree with 4,5,6,7,8,9 out of 10 features, with 9th feature, our algorithm gave a wrong class. This shows that some noisy features are present which votes for the wrong class. By taking a reduced set of features eg. 6 features out of 10, the results were better.
+
+
 ![measure13](https://user-images.githubusercontent.com/37708330/44956668-ea741080-aec7-11e8-8ea3-c0a2d4016cb8.PNG)
+
+
+Eventhough class 129937 has highest vote, it is a symmetric duplicate of our camera points. Now we check alll the fifteen highest voted class and calculate the corresponding errors. The minimum error is given by the class was 38221 - which is our expected result.
+
+
 ![measure14](https://user-images.githubusercontent.com/37708330/44956669-ec3dd400-aec7-11e8-8329-2786cec87b1d.PNG)
+
+Souce point cloud transformed by the transformation matrix given from the class 38221. 
+
+***Measurement 2:***
+
 ![measure2](https://user-images.githubusercontent.com/37708330/44956673-f8299600-aec7-11e8-90bd-820975d23a0a.PNG)
+
 ![measure22](https://user-images.githubusercontent.com/37708330/44956675-0081d100-aec8-11e8-81ca-a3f986df8d90.PNG)
+
+If we analyze the table above, considering the results of the tree with 4,5,6,7,8,9 out of 10 features, all different trees resulted in the same class- shows there is not much noise present in this considered measurement.
+
 ![measure23](https://user-images.githubusercontent.com/37708330/44956684-2ad38e80-aec8-11e8-9449-33d6609e724a.PNG)
+
+Here, our measurement has no symmetric data corrresponding to the CAD measurement. So our correct correspondences is given the highest vote.
+
 ![measure24](https://user-images.githubusercontent.com/37708330/44956689-31fa9c80-aec8-11e8-96e9-2a135245fc5b.PNG)
 
+***Key Obersvations:***
+
+• Key points detected in Harris 3D key point algorithm is crucial for this algorithm to give an accurate result. The generated key points which approximately matched with the exact corner point had low RMS error. In the same time, measurements which had inaccurate key points had comparatively high RMS error.
+
+• Since this algorithm splits the dataset and specifically matches with different combination of features, it could handle key points which are generated inaccurately*.
+
+• It was observed that well-spaced key points gave better results compared with closely placed key points.
+
+• The histogram for predicted class gave better results when number of features considered were chosen in reduced set of combination**.
+
+*If the algorithm is not able to predict the correct correspondence, parameters could be tuned to get nearest possible solution.*
+
+*Considering 5 points in Camera measurement, no. of features formed will be 10. Each point will contribute to 4 features. Suppose we take 6 features out of 10, then we eliminate contribution of one point which may or may not be an accurate point. So similarly, if we take combinations of features, we try to eliminate maximum possible “bad” features. Each of the corresponding trees will vote for a class by which our histogram is obtained. One could say that lesser features would eliminate all possible bad features but it has to be taken into account that more features will improve the performance of model and lesser features will over fit the model. So 6 or 7 was an optimized set of features for this dataset.*
 
