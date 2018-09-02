@@ -353,6 +353,7 @@ for feature_selected in range(7,unknown_value_count+1):
             train_chk = np.reshape(formed_traindata,(feature_col, each_tree_limit)).T
             eval_check = np.reshape(formed_evaldata,(feature_col,1)).T
             y = np.arange(0,train_chk.shape[0],1)
+	     #Decision tree model initialized 
             dt = DecisionTreeRegressor()
             dt = dt.fit( train_chk, y ) 
             testval = np.reshape(np.array(eval_check),(1,feature_col))
@@ -369,7 +370,6 @@ for feature_selected in range(7,unknown_value_count+1):
     flatten_indices = [i[0] for i in possible_indices_final]
     
     flatten_indices = list(flatten_indices)
-    q = Counter(flatten_indices)
     predicted_class_confident,deviation_in_mat = find_confident_combination(flatten_indices)
     print('RMSE : ', min(deviation_in_mat))
     print('Class : ' ,predicted_class_confident)
@@ -383,9 +383,6 @@ for feature_selected in range(7,unknown_value_count+1):
     treescount_list.append(feature_row)
     features_considered.append(feature_selected)
     final_result.append(predicted_class_confident)
-    if (feature_selected == 7):
-        save_plot(predicted_class_confident)
-    break
 
 #--------------------------------------------------------Log result in csv-----------------------------------------------------------------------------
 
