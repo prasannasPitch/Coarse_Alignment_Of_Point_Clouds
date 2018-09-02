@@ -166,6 +166,13 @@ However, we have to take another strategy to eliminate symmetric points in our d
 Measurement 1:
 Camera Point Cloud:
 
-
+![measure1](https://user-images.githubusercontent.com/37708330/44956665-e34d0280-aec7-11e8-9966-42a88b2fde7d.PNG)
+![measure12](https://user-images.githubusercontent.com/37708330/44956667-e8aa4d00-aec7-11e8-92a9-d9c5fadd797c.PNG)
+![measure13](https://user-images.githubusercontent.com/37708330/44956668-ea741080-aec7-11e8-8ea3-c0a2d4016cb8.PNG)
+![measure14](https://user-images.githubusercontent.com/37708330/44956669-ec3dd400-aec7-11e8-8329-2786cec87b1d.PNG)
+![measure2](https://user-images.githubusercontent.com/37708330/44956673-f8299600-aec7-11e8-90bd-820975d23a0a.PNG)
+![measure22](https://user-images.githubusercontent.com/37708330/44956675-0081d100-aec8-11e8-81ca-a3f986df8d90.PNG)
+![measure23](https://user-images.githubusercontent.com/37708330/44956684-2ad38e80-aec8-11e8-9449-33d6609e724a.PNG)
+![measure24](https://user-images.githubusercontent.com/37708330/44956689-31fa9c80-aec8-11e8-96e9-2a135245fc5b.PNG)
 
 
