@@ -254,18 +254,21 @@ def addnoise(eval_data):
     
     return predicted_cl_after_filter,min(deviation_in_mat)
 
+#find top ranked classes
+def select_top_classes(flatten_indices):
+    df = pd.DataFrame(flatten_indices)
+    first_axis_df = pd.value_counts(df[0])
+    list_needed = first_axis_df.head(15)
+    list_selected = list(list_needed.index.values)
+    return list_selected
+
 
 #save histogram for class number
-def save_plot(predicted_class_confident):
-    df = pd.DataFrame(flatten_indices)
-    ex = df[0]
-    x = pd.value_counts(ex)
-    listneed = x.head(15)
-    p = list(listneed.index.values) 
-    my_colors1 = list(islice(cycle(['b']), None, len(listneed)))
-    if(predicted_class_confident in p):
-        my_colors1[p.index(predicted_class_confident)] = 'g'
-    ax1 = listneed.plot.barh(color=my_colors1,figsize = [7,4])
+def save_plot(list_selected): 
+    my_colors1 = list(islice(cycle(['b']), None, len(list_needed)))
+    if(predicted_class_confident in list_selected):
+        my_colors1[list_selected.index(predicted_class_confident)] = 'g'
+    ax1 = list_needed.plot.barh(color=my_colors1,figsize = [7,4])
     ax1.set_title(str(feature_selected)+' Feature Histogram')
     ax1.set_xlabel("Votes")
     ax1.set_ylabel("Class")
@@ -273,7 +276,7 @@ def save_plot(predicted_class_confident):
     fig1.savefig('C:\\Users\\prasa\\Desktop\\dataset\\master_stl\\reading_9\\'+'feature_'+str(feature_selected)+'_histogram.jpg')
     print('Plot saved')
     print(my_colors1)
-    my_colors1 = list(islice(cycle(['b']), None, len(listneed)))
+    my_colors1 = list(islice(cycle(['b']), None, len(list_needed)))
 
 
 #------------------------------------------------------combinations generated------------------------------------------------------------------------------
@@ -369,14 +372,14 @@ for feature_selected in range(7,unknown_value_count+1):
     possible_indices_final = np.reshape(np.asarray(possible_indices),(sc_pt_count*feature_row,1)).tolist()
     flatten_indices = [i[0] for i in possible_indices_final]
     
-    flatten_indices = list(flatten_indices)
-    predicted_class_confident,deviation_in_mat = find_confident_combination(flatten_indices)
+    top_class_list = select_top_classes(list(flatten_indices))
+    predicted_class_confident,deviation_in_mat = find_confident_combination(top_class_list)
     print('RMSE : ', min(deviation_in_mat))
     print('Class : ' ,predicted_class_confident)
     print ('Evaluation time:', round(time.time()-t0, 3), 's')
     print(combination_pt_master[predicted_class_confident])
     save_transformation(predicted_class_confident)
-#    save_plot(predicted_class_confident,feature_selected)
+    save_plot(predicted_class_confident)
     rmse_list.append(round(min(deviation_in_mat),3))
     evalTime_list.append(round(time.time()-t0, 3))
     t0=time.time()
