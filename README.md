@@ -157,5 +157,8 @@ The discussed algorithm works well when the data is ideal i.e. if we dont have a
 - Keypoint detection algorithm gives only the key regions. Keypoint is found by taking K Means Clustering algorithm. So deviation of keypoints from the actual corners is likely to happen.
 - Symmetric workpieces like cuboid might have same eucledian distances between them.
 
-To handle these issues, I have designed an approach to take an optimal number of features which can contribute only to the right class/node. For example, the above considered point clouds will have 10 features which is noisy. 
+To handle these issues, I have designed an approach by which only certain combinations of features are selected and trained in the model. Likewise, different sets of features are taken from training data, trained with the decision tree. These decision trees are then predicts for our evaluation data and votes for a class. The class which gets maximum no. of votes will be the required correspondences of points. The reason for doing this is to reduce the features which may be noisy. Not all the features/points will be deviated from the original value. Therefore, by this method we could elliminate the impact of noise in this data.
+
+However, we have to take another strategy to eliminate symmetric points in our data. So, first 15 classes (assumption) which is ranked based on the number of votes will be selected. Then for each of this class, transformation matrix is estimated. With each of this 15 transformation matrix, our source points are transformed and verified with our target points. The difference between these two set of points are estimated and the class which has the lowest deviation will be our required correspondences of points. This could be well explained in the results below.
+
 
