@@ -22,7 +22,7 @@ The Point Cloud Library (PCL) is a standalone, large scale, open project for 2D/
 - Feature Generation
 - Model Training & Evaluation
 - Resolving Problems
-- Results Obtained
+- Observations & Results
 
 #### Dataset Reduction - Keypoint Generation
 
@@ -159,6 +159,13 @@ The discussed algorithm works well when the data is ideal i.e. if we dont have a
 
 To handle these issues, I have designed an approach by which only certain combinations of features are selected and trained in the model. Likewise, different sets of features are taken from training data, trained with the decision tree. These decision trees are then predicts for our evaluation data and votes for a class. The class which gets maximum no. of votes will be the required correspondences of points. The reason for doing this is to reduce the features which may be noisy. Not all the features/points will be deviated from the original value. Therefore, by this method we could elliminate the impact of noise in this data.
 
-However, we have to take another strategy to eliminate symmetric points in our data. So, first 15 classes (assumption) which is ranked based on the number of votes will be selected. Then for each of this class, transformation matrix is estimated. With each of this 15 transformation matrix, our source points are transformed and verified with our target points. The difference between these two set of points are estimated and the class which has the lowest deviation will be our required correspondences of points. This could be well explained in the results below.
+However, we have to take another strategy to eliminate symmetric points in our data. So, first 15 classes (assumption) which is ranked based on the number of votes will be selected. Then for each of this class, transformation matrix is estimated. With each of this 15 transformation matrix, our source points are transformed and verified with our target points. The difference between these two set of points is calculated and the class which has the lowest deviation will be our required correspondences of points. This could be well explained in the results below.
+
+### Observations & Results
+
+Measurement 1:
+Camera Point Cloud:
+
+
 
 
