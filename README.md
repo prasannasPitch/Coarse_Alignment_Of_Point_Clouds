@@ -210,18 +210,20 @@ Here, our measurement has no symmetric data corrresponding to the CAD measuremen
 *Considering 5 points in Camera measurement, no. of features formed will be 10. Each point will contribute to 4 features. Suppose we take 6 features out of 10, then we eliminate contribution of one point which may or may not be an accurate point. So similarly, if we take combinations of features, we try to eliminate maximum possible “bad” features. Each of the corresponding trees will vote for a class by which our histogram is obtained. One could say that lesser features would eliminate all possible bad features but it has to be taken into account that more features will improve the performance of model and lesser features will over fit the model. So 6 or 7 was an optimized set of features for this dataset.*
 
 ***Measurement 3:***
-
-![measure4](https://user-images.githubusercontent.com/37708330/44957690-f74b3100-aed4-11e8-8585-6684dcc9b010.PNG)
-![measure42](https://user-images.githubusercontent.com/37708330/44957691-f9ad8b00-aed4-11e8-94bb-6c7a5d842fba.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37708330/44957690-f74b3100-aed4-11e8-8585-6684dcc9b010.PNG">
+  <img src="https://user-images.githubusercontent.com/37708330/44957691-f9ad8b00-aed4-11e8-94bb-6c7a5d842fba.PNG">
+</p>
 
 ***Measurement 4:***
-
-![measure5](https://user-images.githubusercontent.com/37708330/44957692-ff0ad580-aed4-11e8-9273-3b6424c01259.PNG)
-![measure52](https://user-images.githubusercontent.com/37708330/44957693-0205c600-aed5-11e8-8494-af593ec63d72.PNG)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37708330/44957692-ff0ad580-aed4-11e8-9273-3b6424c01259.PNG">
+  <img src="https://user-images.githubusercontent.com/37708330/44957693-0205c600-aed5-11e8-8494-af593ec63d72.PNG">
+</p>
 
 ***Measurement 5:***
-
-![measure3](https://user-images.githubusercontent.com/37708330/44957684-e7cbe800-aed4-11e8-9632-ac2c441a4167.PNG)
-![measure32](https://user-images.githubusercontent.com/37708330/44957688-f4504080-aed4-11e8-989c-a572d9c222b3.PNG)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/37708330/44957684-e7cbe800-aed4-11e8-9632-ac2c441a4167.PNG">
+  <img src="https://user-images.githubusercontent.com/37708330/44957688-f4504080-aed4-11e8-989c-a572d9c222b3.PNG">
+</p>
 
