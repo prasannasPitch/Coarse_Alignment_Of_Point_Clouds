@@ -43,10 +43,10 @@ The Harris method (Harris and Stephens, 1988) is a corner and edge based method 
     //Code Snippet to Detect Harris 3D Keypoints
     
     
-    pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>* harris3D = new
-    pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>(pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>::HARRIS);
-			
-    harris3D->setNonMaxSupression(false);
+		pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>* harris3D = new
+			pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>(pcl::HarrisKeypoint3D<pcl::PointXYZ, pcl::PointXYZI>::HARRIS);
+
+		harris3D->setNonMaxSupression(false);
 		harris3D->setRadius(12);
 		harris3D->setInputCloud(orig_pcd);
 		pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>);
@@ -60,11 +60,13 @@ The Harris method (Harris and Stephens, 1988) is a corner and edge based method 
 		pcl::io::savePCDFile("keypoints_10r_cad_pose0.pcd", *keypoints);
 		pcl::console::print_info("Saved keypoints to keypoints.pcd\n");
 		int size_pt = 0;
+		std::vector<int> pointIdxKeypoints;
 		float intensity_thresh = .0116f;
 		for (size_t i = 0; i < keypoints->size(); i++)
 		{
 			if (keypoints->points[i].intensity >= intensity_thresh)
 			{
+				pointIdxKeypoints.push_back(i);
 				++size_pt;
 			}
 		}
@@ -72,19 +74,14 @@ The Harris method (Harris and Stephens, 1988) is a corner and edge based method 
 		key_regions->height = 1;
 		key_regions->is_dense = false;
 		key_regions->points.resize(key_regions->width * key_regions->height);
-		int kex_index = 0;
-		for (size_t i = 0; i < keypoints->size(); i++)
+		for (size_t i = 0; i < size_pt; i++)
 		{
-			
-			if (keypoints->points[i].intensity >= intensity_thresh)
-			{
-				key_regions->points[kex_index].x = keypoints->points[i].x;
-				key_regions->points[kex_index].y = keypoints->points[i].y;
-				key_regions->points[kex_index].z = keypoints->points[i].z;
-				++kex_index;
-			}
+				key_regions->points[i].x = keypoints->points[pointIdxKeypoints[i]].x;
+				key_regions->points[i].y = keypoints->points[pointIdxKeypoints[i]].y;
+				key_regions->points[i].z = keypoints->points[pointIdxKeypoints[i]].z;
 		}
 		pcl::io::savePCDFile("key_regions.pcd", *key_regions);
+		
     
 ![cad-ptcld](https://user-images.githubusercontent.com/37708330/44541347-f31b5880-a709-11e8-9a9e-741a2173a950.png)
 Fig. 1 - Step File of the Model and its corresponding point cloud with keypoints highlighted.
