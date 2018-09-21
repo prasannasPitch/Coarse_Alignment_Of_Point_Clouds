@@ -261,3 +261,7 @@ Here, our measurement has no symmetric data corrresponding to the CAD measuremen
   <img src="https://user-images.githubusercontent.com/37708330/44957688-f4504080-aed4-11e8-989c-a572d9c222b3.PNG">
 </p>
 
+Note:
+
+Preprocessing : C++ Application - Coarse_Alignment_Standalone.cpp
+Model Implementation: Python - Main_python.py
