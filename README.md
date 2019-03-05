@@ -263,5 +263,5 @@ Here, our measurement has no symmetric data corrresponding to the CAD measuremen
 
 Note:
 
-Preprocessing : C++ Application - Coarse_Alignment_Standalone.cpp
+Preprocessing : C++ Application - Coarse_Alignment_Standalone.cpp  
 Model Implementation: Python - Main_python.py
