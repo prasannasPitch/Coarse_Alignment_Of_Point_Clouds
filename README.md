@@ -30,6 +30,9 @@ The Point Cloud Library (PCL) is a standalone, large scale, open project for 2D/
 - Resolving Problems
 - Observations & Results
 
+![image](https://user-images.githubusercontent.com/37708330/72132406-1f775980-337f-11ea-9c6a-de19899d23a2.png)
+
+
 #### Dataset Reduction - Keypoint Generation
 
 <p align="justify">
